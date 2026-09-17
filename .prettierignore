@@ -1,0 +1,4 @@
+dist
+node_modules
+extensions/recorder/dist
+extensions/recorder/coverage

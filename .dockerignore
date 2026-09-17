@@ -1,0 +1,28 @@
+# git / CI
+.git
+.github
+
+# deps / build
+node_modules
+dist
+coverage
+out
+build
+
+# env / secrets
+.env
+.env.*
+
+# tooling
+.devcontainer
+.vscode
+.opencode
+
+# OS / logs
+*.log
+.DS_Store
+Thumbs.db
+
+# meta (not needed inside image)
+.gitignore
+.dockerignore

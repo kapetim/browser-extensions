@@ -1,0 +1,42 @@
+{
+  "name": "browser-extensions",
+  "version": "1.0.0",
+  "description": "Browser tools \u2014 shared lib + chrome/firefox adapters.",
+  "private": true,
+  "scripts": {
+    "build": "vite build && cp src/chrome/manifest.json dist/manifest.json",
+    "setup:browser": "npm run build && node src/chrome/dev/setup-browser.mjs",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "format:local": "prettier . --write && eslint . --fix",
+    "format:check": "prettier . --check",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test:coverage && npm run build"
+  },
+  "keywords": [
+    "browser-extension",
+    "recorder",
+    "network"
+  ],
+  "author": "",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/chrome": "^0.1.38",
+    "@types/node": "^25.5.0",
+    "@vitest/coverage-v8": "^4.1.2",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.4.0",
+    "jsdom": "^29.0.1",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.2",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.2"
+  }
+}
