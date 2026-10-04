@@ -1,10 +1,10 @@
 # Local development: build an extension and install it
 
-This workspace holds one or more Chrome extensions under **`extensions/<name>/`**. Today the Vite build is wired to **[Recorder](../extensions/recorder/)**; the same workflow applies to any extension once its folder has a **`dist/`** output from `npm run build`.
+This workspace holds one or more Chrome extensions under **`extensions/<name>/`**. Today the Vite build is wired to **[Recorder](../../extensions/recorder/)**; the same workflow applies to any extension once its folder has a **`dist/`** output from `npm run build`.
 
 ## Prerequisites
 
-- **Node.js 22.x** (see the root [README.md](../README.md) badge).
+- **Node.js 22.x** (see the root [README.md](../../README.md) badge).
 - **Google Chrome** (or Chromium) with support for **Manifest V3** unpacked loads.
 
 ## Repository layout (what matters for builds)
@@ -20,7 +20,7 @@ browser-extensions/          ← repository root; always run npm commands here
 │       ├── tests/          ← Vitest specs (`**/*.test.ts`)
 │       ├── public/         ← static assets (e.g. icons), copied into dist/
 │       └── dist/           ← produced by `npm run build` — this is what you load in Chrome
-└── docs/                   ← documentation (this folder)
+└── src/docs/                   ← documentation (this folder)
 ```
 
 Load **`extensions/<extension-name>/dist/`** in Chrome — **never** `src/` or `public/` alone.
@@ -59,7 +59,7 @@ Use **Reload** on the card after you rebuild. If Chrome shows errors, open **Err
 
 1. Create **`extensions/<your-extension>/`** with `manifest.json`, scripts, and assets.
 2. Update **`vite.config.ts`** (or add a dedicated config/script) so `npm run build` emits **`extensions/<your-extension>/dist/`**.
-3. Register it in the root **[README.md](../README.md)** and follow **[CONTRIBUTING.md](../CONTRIBUTING.md)**.
+3. Register it in the root **[README.md](../../README.md)** and follow **[CONTRIBUTING.md](../../CONTRIBUTING.md)**.
 
 ## Verify Recorder works
 

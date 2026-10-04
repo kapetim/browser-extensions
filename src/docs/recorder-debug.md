@@ -75,6 +75,6 @@ If export looks wrong, verify in order:
 
 ## 7) Useful related docs
 
-- [docs/recorder-execution-flow.md](recorder-execution-flow.md)
-- [docs/recorder-recording-format.md](recorder-recording-format.md)
-- [docs/recorder-install-verify.md](recorder-install-verify.md)
+- [src/docs/recorder-execution-flow.md](recorder-execution-flow.md)
+- [src/docs/recorder-recording-format.md](recorder-recording-format.md)
+- [src/docs/recorder-install-verify.md](recorder-install-verify.md)
