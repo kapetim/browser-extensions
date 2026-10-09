@@ -20,7 +20,7 @@ async function main() {
   console.log("4) Select this project's dist/ folder");
   console.log("5) If already loaded, click Reload on Recorder");
   console.log("");
-  console.log("See docs/local-development.md for full guidance.");
+  console.log("See src/docs/local-development.md for full guidance.");
   console.log("");
 }
 

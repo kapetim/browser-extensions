@@ -17,8 +17,8 @@ src/
   lib/        shared browser-agnostic logic (+ tests)
   chrome/     Chrome adapter: MV3 manifest, entrypoints (background/content/options/popup), build (+ tests)
   firefox/    Firefox adapter: MV2 manifest, entrypoints, build (+ tests)
-docker/       Dockerfile (CI pipeline)
-docs/
+  docs/       documentation
+docker/       browser-extensions.Dockerfile (CI pipeline)
 ```
 
 AI-assisted features (e.g., a chat helper in a web app) are exploratory. The per-browser adapters/builds are tracked as issues.
