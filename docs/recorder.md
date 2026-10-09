@@ -6,18 +6,18 @@ Chrome extension (MV3) that **samples open tabs on a timer**, dedupes captures b
 
 ## Documentation
 
-All docs live in the repo **`src/docs/`** folder (not here):
+All docs live in the repo **`docs/`** folder (not here):
 
 | Topic                           | Link                                                                               |
 | ------------------------------- | ---------------------------------------------------------------------------------- |
-| System design                   | [src/docs/recorder-system-design.md](./recorder-system-design.md)             |
-| Build & load unpacked           | [src/docs/local-development.md](./local-development.md)                       |
-| Store publish & profile install | [src/docs/chrome-web-store-release.md](./chrome-web-store-release.md)         |
-| Export zip layout               | [src/docs/recorder-recording-format.md](./recorder-recording-format.md)       |
-| Merged graph schema             | [src/docs/recorder-merged-graph-schema.md](./recorder-merged-graph-schema.md) |
-| Pipeline behavior               | [src/docs/recorder-execution-flow.md](./recorder-execution-flow.md)           |
-| Smoke test                      | [src/docs/recorder-install-verify.md](./recorder-install-verify.md)           |
-| Doc index                       | [README.md#documentation](../../README.md#documentation)                           |
+| System design                   | [docs/recorder-system-design.md](./recorder-system-design.md)             |
+| Build & load unpacked           | [docs/local-development.md](./local-development.md)                       |
+| Store publish & profile install | [docs/chrome-web-store-release.md](./chrome-web-store-release.md)         |
+| Export zip layout               | [docs/recorder-recording-format.md](./recorder-recording-format.md)       |
+| Merged graph schema             | [docs/recorder-merged-graph-schema.md](./recorder-merged-graph-schema.md) |
+| Pipeline behavior               | [docs/recorder-execution-flow.md](./recorder-execution-flow.md)           |
+| Smoke test                      | [docs/recorder-install-verify.md](./recorder-install-verify.md)           |
+| Doc index                       | [README.md#documentation](../README.md#documentation)                           |
 
 ## Requirements
 

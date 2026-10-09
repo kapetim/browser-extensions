@@ -21,7 +21,7 @@ Zip the **contents** of the extension’s **`dist/`** folder (the unpacked exten
 Example for Recorder (adjust paths if your extension name differs). Run from the repo root; name the zip however you like (often include manifest version in the filename):
 
 ```bash
-(cd extensions/recorder/dist && zip -r ../../../recorder-mv3-store.zip .)
+(cd extensions/recorder/dist && zip -r ../../recorder-mv3-store.zip .)
 ```
 
 Naming is your choice (e.g. `recorder-mv3-1.2.3.zip`). That archive is what you upload in [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/).
