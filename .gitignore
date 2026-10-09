@@ -7,7 +7,7 @@ node_modules/
 
 # testing
 /coverage
-/extensions/recorder/coverage
+/src/coverage
 
 # next.js
 /.next/
@@ -16,7 +16,8 @@ node_modules/
 # production
 /build
 /dist
-/extensions/recorder/dist
+/src/build
+/src/dist
 
 # misc
 .DS_Store

@@ -5,25 +5,17 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
-    ignores: ["dist/**", "node_modules/**", "extensions/recorder/dist/**"],
+    ignores: ["**/dist/**", "**/node_modules/**", "**/assets/**"],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ["extensions/recorder/src/**/*.ts", "vite.config.ts"],
+    files: ["**/*.ts", "**/*.mjs", "**/*.js"],
     languageOptions: {
       globals: {
         ...globals.browser,
         ...globals.node,
         ...globals.webextensions,
-      },
-    },
-  },
-  {
-    files: ["scripts/**/*.mjs"],
-    languageOptions: {
-      globals: {
-        ...globals.node,
       },
     },
   },

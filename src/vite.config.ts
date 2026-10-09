@@ -12,10 +12,10 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        popup: resolve(extensionRoot, "src/chrome/popup.html"),
-        options: resolve(extensionRoot, "src/chrome/options.html"),
-        background: resolve(extensionRoot, "src/chrome/background.ts"),
-        content: resolve(extensionRoot, "src/chrome/content.ts"),
+        popup: resolve(extensionRoot, "chrome/popup.html"),
+        options: resolve(extensionRoot, "chrome/options.html"),
+        background: resolve(extensionRoot, "chrome/background.ts"),
+        content: resolve(extensionRoot, "chrome/content.ts"),
       },
       output: {
         entryFileNames: "[name].js",
@@ -25,12 +25,12 @@ export default defineConfig({
     },
   },
   test: {
-    include: ["src/**/tests/*.test.ts"],
+    include: ["**/tests/*.test.ts"],
     coverage: {
       provider: "v8",
       reporter: ["text", "html"],
-      include: ["src/**/*.ts"],
-      exclude: ["src/**/tests/*.test.ts"],
+      include: ["chrome/**/*.ts", "lib/**/*.ts"],
+      exclude: ["**/tests/*.test.ts"],
     },
   },
 });

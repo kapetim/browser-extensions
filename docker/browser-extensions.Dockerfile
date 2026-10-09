@@ -1,11 +1,11 @@
 # Multi-stage CI for browser-extensions — deps → unit → build
 FROM node:22-slim AS deps
 
-WORKDIR /app
-COPY package.json package-lock.json ./
+WORKDIR /app/src
+COPY src/package.json src/package-lock.json ./
 RUN npm ci
 
-COPY . .
+COPY src/ .
 
 FROM deps AS unit-test
 

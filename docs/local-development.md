@@ -1,6 +1,6 @@
 # Local development: build an extension and install it
 
-This workspace holds one or more Chrome extensions under **`extensions/<name>/`**. Today the Vite build is wired to **[Recorder](../extensions/recorder/)**; the same workflow applies to any extension once its folder has a **`dist/`** output from `npm run build`.
+The extension source lives under **`src/`** and the Vite build targets it directly; run all npm commands from **`src/`**.
 
 ## Prerequisites
 
@@ -10,29 +10,28 @@ This workspace holds one or more Chrome extensions under **`extensions/<name>/`*
 ## Repository layout (what matters for builds)
 
 ```text
-browser-extensions/          ← repository root; always run npm commands here
-├── package.json            ← shared scripts: build, test, lint
-├── vite.config.ts          ← build config (currently targets one extension root)
-├── extensions/
-│   └── recorder/           ← extension source
-│       ├── manifest.json
-│       ├── src/
-│       ├── tests/          ← Vitest specs (`**/*.test.ts`)
-│       ├── public/         ← static assets (e.g. icons), copied into dist/
-│       └── dist/           ← produced by `npm run build` — this is what you load in Chrome
-└── docs/                   ← documentation (this folder)
+browser-extensions/          ← repository root
+├── src/                      ← npm project root; always run npm commands here
+│   ├── package.json          ← shared scripts: build, test, lint
+│   ├── vite.config.ts        ← build config
+│   ├── chrome/               ← MV3 extension source (manifest, popup, background, content)
+│   ├── firefox/              ← Firefox manifest
+│   ├── lib/                  ← shared library code + tests
+│   └── dist/                 ← produced by `npm run build` — this is what you load in Chrome
+└── docs/                     ← documentation (this folder)
 ```
 
-Load **`extensions/<extension-name>/dist/`** in Chrome — **never** `src/` or `public/` alone.
+Load **`src/dist/`** in Chrome — **never** the source folder alone.
 
-## Build (from the repository root)
+## Build (from `src/`)
 
 ```bash
+cd src
 npm ci
 npm run build
 ```
 
-For Recorder, output appears under **`extensions/recorder/dist/`** (manifest, JS bundles, `icons/`, HTML entrypoints).
+Output appears under **`src/dist/`** (manifest, JS bundles, `icons/`, HTML entrypoints).
 
 Optional helper that echoes browser steps:
 
@@ -45,7 +44,7 @@ npm run setup:browser
 1. Open **`chrome://extensions`**.
 2. Enable **Developer mode** (toggle is usually top-right).
 3. Click **Load unpacked**.
-4. Select the **`dist`** folder for the extension you built, e.g. **`extensions/recorder/dist/`**.
+4. Select the **`src/dist/`** folder.
 
 Use **Reload** on the card after you rebuild. If Chrome shows errors, open **Errors** / **Service worker** on that card and fix the build before retrying.
 
@@ -55,19 +54,9 @@ Use **Reload** on the card after you rebuild. If Chrome shows errors, open **Err
 - **Managed devices (MDM)** may block unpacked extensions or restrict downloads; use a profile where development is allowed.
 - If an extension uses **downloads** (Recorder exports a zip), ensure Chrome can write to **Downloads** — check **System Settings → Privacy & Security → Files and Folders** (and the download bar for blocked files).
 
-### Adding another extension later
-
-1. Create **`extensions/<your-extension>/`** with `manifest.json`, scripts, and assets.
-2. Update **`vite.config.ts`** (or add a dedicated config/script) so `npm run build` emits **`extensions/<your-extension>/dist/`**.
-3. Register it in the root **[README.md](../README.md)** and follow **[CONTRIBUTING.md](../CONTRIBUTING.md)**.
-
-## Verify Recorder works
-
-After loading **`extensions/recorder/dist/`**, follow **[recorder-install-verify.md](recorder-install-verify.md)** for a minimal capture/export check.
-
 ## Quality checks before you push
 
-From the repository root:
+From **`src/`**:
 
 ```bash
 npm run check    # format, lint, typecheck, tests, build
